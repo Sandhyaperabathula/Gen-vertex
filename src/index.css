@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif&display=swap');
+@import "tailwindcss";
+
+
+@theme {
+  --color-primary: #aa3bff;
+  --color-secondary: #c084fc;
+  --color-dark: #08060d;
+  --color-dark-lighter: #16171d;
+  --color-border: rgba(255, 255, 255, 0.1);
+  --color-glass: rgba(255, 255, 255, 0.03);
+  
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+:root {
+  background-color: #08060d;
+  color: #f3f4f6;
+  font-family: var(--font-sans);
+}
+
+@layer base {
+  body {
+    @apply bg-dark text-gray-200 antialiased;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-glass border border-border backdrop-blur-xl;
+  }
+  
+.glass-card {
+  @apply rounded-3xl p-8 border border-border backdrop-blur-xl transition-all duration-300 hover:border-primary/50;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+  .glow-bg {
+    @apply absolute -z-10 blur-[120px] opacity-20;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-linear-to-r from-white via-white to-primary;
+  }
+
+  .btn-primary {
+    @apply bg-primary hover:bg-primary/90 text-white px-8 py-3 rounded-full font-semibold transition-all duration-300 flex items-center gap-2 shadow-lg shadow-primary/20;
+  }
+
+ .btn-secondary {
+  background: rgba(255,255,255,0.03);
+  @apply border border-white/10 backdrop-blur-xl hover:bg-white/10 text-white px-8 py-3 rounded-full font-semibold transition-all duration-300 flex items-center gap-2;
+}
+}
