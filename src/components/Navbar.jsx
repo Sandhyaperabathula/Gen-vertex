@@ -275,7 +275,7 @@ const Navbar = () => {
 
             {/* BLOG */}
             <a
-              href="#blog"
+              href="/blog"
               onClick={() => setActiveLink('Blog')}
               className={`
                 text-[18px]
@@ -399,6 +399,7 @@ const Navbar = () => {
               >
                 Pricing
               </Link>
+              
 
               {/* RESOURCES */}
               <div>
@@ -482,8 +483,8 @@ const Navbar = () => {
               </div>
 
               {/* BLOG */}
-              <a
-                href="#blog"
+             <Link
+                to="/blog"
                 className="text-white text-lg font-medium"
                 onClick={() => {
                   setActiveLink('Blog');
@@ -491,7 +492,9 @@ const Navbar = () => {
                 }}
               >
                 Blog
-              </a>
+              </Link>
+
+              
 
               {/* BUTTON */}
               <button

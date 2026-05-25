@@ -11,6 +11,7 @@ import FAQ from './components/FAQ';
 import Footer from './components/Footer';
 import Contact from "./components/contact";
 import PricingPage from "./pages/pricing";
+import Blog from "./pages/blog";
 
 import { MessageCircle, ArrowUp } from "lucide-react";
 
@@ -22,6 +23,7 @@ const HomePage = () => (
     <Dashboard />
     <Testimonials />
     <Pricing />
+   
     <FAQ />
   </main>
 );
@@ -36,6 +38,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/pricing" element={<PricingPage />} />
+          <Route path="/blog" element={<Blog />} />
           <Route path="*" element={<HomePage />} />
         </Routes>
 
