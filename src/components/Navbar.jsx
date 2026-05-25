@@ -109,17 +109,17 @@ const Navbar = () => {
           "
         >
           {/* LOGO */}
-          <div className="flex items-center gap-3">
-            <img
-              src={logo}
-              alt="logo"
-              className="
-                w-[104px]
-                h-auto
-                object-contain
-              "
-            />
-          </div>
+          <Link to="/" className="flex items-center gap-3">
+  <img
+    src={logo}
+    alt="logo"
+    className="
+      w-[104px]
+      h-auto
+      object-contain
+    "
+  />
+</Link>
 
           {/* DESKTOP MENU */}
           <div

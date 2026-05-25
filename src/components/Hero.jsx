@@ -3,9 +3,33 @@ import { motion } from "framer-motion";
 import { ArrowRight, Star } from "lucide-react";
 
 import Container from "./Container";
-
 import hero_section from "../assets/hero_section.png";
 import Ai from "../assets/Ai.png";
+import { Link } from "react-router-dom";
+
+const container = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.03,
+    },
+  },
+};
+
+const child = {
+  hidden: {
+    y: 120,
+    opacity: 0,
+  },
+  show: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.6,
+      ease: [0.22, 1, 0.36, 1],
+    },
+  },
+};
 
 const Hero = () => {
   return (
@@ -27,7 +51,7 @@ const Hero = () => {
       }}
     >
       {/* DARK OVERLAY */}
-      <div className="absolute inset-0 bg-black/55 z-0"></div>
+      <div className="absolute inset-0 bg-black/75 z-0"></div>
 
       {/* BLUE GLOW */}
       <div className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-blue-500/30 blur-[180px] rounded-full"></div>
@@ -65,23 +89,30 @@ const Hero = () => {
 
           {/* TITLE */}
           <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="
-              text-[52px]
-              sm:text-[68px]
-              md:text-[82px]
-              lg:text-[110px]
-              leading-[0.95]
-              tracking-[-3px]
-              text-[#ECECEC]
-              font-[Instrument_Serif]
-              max-w-[1200px]
-            "
-          >
-            Say goodbye to manual
-          </motion.h1>
+  variants={container}
+  initial="hidden"
+  animate="show"
+  className="
+    text-[52px]
+    sm:text-[68px]
+    md:text-[82px]
+    lg:text-[110px]
+    leading-[0.95]
+    tracking-[-3px]
+    text-[#ECECEC]
+    font-[Instrument_Serif]
+  "
+>
+  {"Say goodbye to manual".split("").map((char, index) => (
+    <motion.span
+      key={index}
+      variants={child}
+      className="inline-block"
+    >
+      {char === " " ? "\u00A0" : char}
+    </motion.span>
+  ))}
+</motion.h1>
 
           {/* SECOND LINE */}
           <motion.div
@@ -276,17 +307,18 @@ const Hero = () => {
                   }}
                 ></div>
 
-                <span
-                  className="
-                    relative
-                    z-10
-                    text-black
-                    text-[16px]
-                    font-semibold
-                  "
-                >
-                  View pricing
-                </span>
+                <Link
+  to="/pricing"
+  className="
+    relative
+    z-10
+    text-black
+    text-[16px]
+    font-semibold
+  "
+>
+  View pricing
+</Link>
               </div>
             </button>
           </motion.div>
